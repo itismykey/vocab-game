@@ -24,4 +24,5 @@ def get_words():
     return jsonify(word_list)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.getenv("PORT", 5000))  # 如果沒有設置 PORT 變數，默認為 5000
+    app.run(host='0.0.0.0', port=port, debug=True)  # 在 0.0.0.0 上運行，讓 Render 可以接收到請求
